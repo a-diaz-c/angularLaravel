@@ -1,0 +1,42 @@
+<div class="container col-xl-8">
+    
+    <div class="container-fluid">
+        <form #miForm="ngForm" (ngSubmit)="registrar(miForm)">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="json_marca.nombre_brands" required>
+            <span *ngIf="nombre.touched && !nombre.valid">
+              El nombre no es valido
+            </span>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success" [disabled]="!miForm.form.valid" >Submit</button>
+          </div>
+        </form>
+    </div>
+    <br>
+    <div *ngIf="nuevaMarca" class="text-center">
+      <h5>La marca se ha guardado correctamente</h5>
+      <h6>{{nuevaMarca.nombre_brands}}</h6>
+      <h6>{{nuevaMarca.id}}</h6>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Modidicar</th>
+            <th scope="col">Acción</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let marca of resultadoPeticion">
+        <tr>
+            <th>{{marca.id}}</th>
+            <td><a [routerLink]="['/marcas', marca.id]">{{marca.nombre_brands}}</a></td>
+            <td><button type="button" class="btn btn-secondary btn-sm">Modidicar</button></td>
+            <td><button type="button" class="btn btn-danger btn-sm" (click)="eliminar(marca)">Eliminar</button></td>
+        </tr>
+        </tbody>
+  </table>
+</div>

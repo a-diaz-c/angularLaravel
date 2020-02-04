@@ -1,0 +1,28 @@
+<div class="container col-xl-8">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Descripcción</th>
+            <th scope="col">Maximo</th>
+            <th scope="col">Minimo</th>
+            <th scope="col">Existencia</th>
+            <th scope="col">Seguirdad</th>
+            <th scope="col">Nombre Marca</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let producto of resultadoPeticion">
+        <tr>
+            <th>{{producto.id}}</th>
+            <td>{{producto.descripcion_products}}</td>
+            <td>{{producto.maximo_products}}</td>
+            <td>{{producto.minimo_products}}</td>
+            <td>{{producto.existencia_products}}</td>
+            <td>{{producto.seguridad_products}}</td>
+            <td>{{producto.nombre_brands}}</td>
+            <td><button type="button" class="btn btn-secondary btn-sm">Modidicar</button></td>
+            <td><button type="button" class="btn btn-danger btn-sm" (click)="eliminar(marca)">Eliminar</button></td>
+        </tr>
+        </tbody>
+  </table>
+</div>
