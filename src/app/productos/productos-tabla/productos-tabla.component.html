@@ -1,0 +1,17 @@
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let producto of resultadoPeticion">
+        <tr>
+            <th>{{producto.id}}</th>
+            <td>{{producto.descripcion_products}}</td>
+        </tr>
+        </tbody>
+  </table>
+  <button type="button" class="btn btn-primary" *ngIf="anterior!=null" (click)="pagina_anterior()">Anterior</button>
+  <button type="button" class="btn btn-primary" *ngIf="siguiente!=null" (click)="pagina_siguiente()">Siguiente</button>

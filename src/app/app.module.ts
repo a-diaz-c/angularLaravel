@@ -10,9 +10,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BarraComponent } from './barra/barra.component';
 import { FormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
+
 
 import { MarcasService } from './Services/marcas/marcas.service';
 import { MarcasProductosComponent } from './marcas/marcas-productos/marcas-productos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductosTablaComponent } from './productos/productos-tabla/productos-tabla.component';
+import { ProductosFormularioComponent } from './productos/productos-formulario/productos-formulario.component';
 
 const appRoutes: Routes = [
     { path: 'marcas', component: MarcasComponent, },
@@ -31,13 +36,17 @@ const appRoutes: Routes = [
     AlmacenesComponent,
     ProductosComponent,
     BarraComponent,
-    MarcasProductosComponent
+    MarcasProductosComponent,
+    ProductosTablaComponent,
+    ProductosFormularioComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
     
   ],
   providers: [MarcasService],

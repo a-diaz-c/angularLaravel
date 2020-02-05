@@ -1,0 +1,53 @@
+<div class="container-fluid mt-3">
+    <form #miForm="ngForm" (ngSubmit)="registrar(miForm)">
+        <div class="row">
+            <div class="form-group col-lg-10">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="json_producto.descripcion_products" required>
+                <span *ngIf="nombre.touched && !nombre.valid">
+                El nombre no es valido
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-10">
+                <label for="nombre">Imagen</label>
+                <input type="file" class="form-control" name="imagen" #imagen="ngModel" [(ngModel)]="ruta" (change)="nombreImagen($event.target.files)">
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="form-group col-lg-3">
+                <label for="maximo">Maximo</label>
+                <input type="number" class="form-control" name="maximo" #maximo="ngModel" [(ngModel)]="json_producto.maximo_products" required >
+            </div>
+            <div class="form-group col-lg-3">
+                <label for="minimo">Minimo</label>
+                <input type="number" class="form-control" name="minimo" #minimo="ngModel" [(ngModel)]="json_producto.minimo_products" required >
+            </div>
+            <div class="form-group col-lg-3 ">
+                <label for="seguiridad">Seguiridad</label>
+                <input type="number" class="form-control" name="seguiridad" #seguridad="ngModel" [(ngModel)]="json_producto.seguridad_products" required>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="form-group col-lg-3">
+                <label for="medida">Medida</label>
+                <input type="number" class="form-control" name="medidad" #medida="ngModel" [(ngModel)]="json_producto.id_measures" required>
+            </div>
+            <div class="form-group col-lg-3">
+                <label for="marca">Marca</label>
+                <input type="number" class="form-control" name="marca" #marca="ngModel" [(ngModel)]="json_producto.id_brands" required>
+            </div>
+            <div class="form-group col-lg-3">
+                <label for="almacen">Almacen</label>
+                <input type="number" class="form-control" name="almacen" #almacen="ngModel" [(ngModel)]="json_producto.id_warehouses" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" [disabled]="!miForm.form.valid" >Submit</button>
+        </div>
+    </form>
+    <div class="container-fluid fondo p-1 m-1">
+        Imagen: <b>{{ imagen.value }}</b><br>
+      </div>
+</div>
